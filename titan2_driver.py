@@ -53,8 +53,7 @@ spec = {
 ui=UInput(spec, name='Titan-Two Monitoring Device')
 
 try:
-	t2=hid.device()
-	t2.open(vendor_id=0x2508, product_id=0x0032)
+	t2=hid.Device(vid=0x2508,pid=0x0032)
 	t2.write(ACTIVATE)
 
 	while data:=[ctypes.c_int8(a).value for a in t2.read(64)]:

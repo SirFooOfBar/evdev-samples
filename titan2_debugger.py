@@ -5,8 +5,7 @@ DISACTIVATE=int.to_bytes(0xf1,64,'little')
 CONTROLLER_DATA_HEADER=0x13
 
 try:
-	t2=hid.device()
-	t2.open(vendor_id=0x2508, product_id=0x0032)	#lsusb
+	t2=hid.Device(vid=0x2508,pid=0x0032)	#lsusb
 	t2.write(ACTIVATE)
 	out=''
 
